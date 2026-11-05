@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Connections Daily</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <header>
+      <h1>Kids Connections</h1>
+      <p class="subtitle">Group 3 words that share a theme!</p>
+    </header>
+
+    <main>
+      <div id="game-status" class="status-banner"></div>
+      
+      <div id="solved-categories" class="solved-container"></div>
+
+      <div id="grid" class="grid-3x3"></div>
+
+      <div class="mistakes-container">
+        <span>Mistakes remaining:</span>
+        <div id="mistake-dots" class="dots"></div>
+      </div>
+
+      <div class="controls">
+        <button id="shuffle-btn" class="btn secondary">Shuffle</button>
+        <button id="deselect-btn" class="btn secondary">Deselect All</button>
+        <button id="submit-btn" class="btn primary" disabled>Submit</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
