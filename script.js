@@ -209,10 +209,12 @@ const PUZZLES = [
 
 // App State
 let currentPuzzle = null;
+let puzzleIdx = 0;
 let activeWords = [];
 let selectedWords = [];
 let solvedCategories = [];
 let mistakesLeft = MAX_MISTAKES;
+let isGameOver = false;
 
 // Elements
 const gridEl = document.getElementById("grid");
@@ -239,12 +241,7 @@ function isDaylightSavings(date) {
 }
 
 function initGame() {
-  if (typeof PUZZLES === 'undefined' || PUZZLES.length === 0) {
-    statusEl.textContent = "Error loading puzzles dataset.";
-    return;
-  }
-
-  const puzzleIdx = getDailyPuzzleIndex();
+  puzzleIdx = getDailyPuzzleIndex();
   currentPuzzle = PUZZLES[puzzleIdx];
   
   activeWords = [];
@@ -253,16 +250,19 @@ function initGame() {
   });
   
   shuffleArray(activeWords);
+  renderStatsAndHistory();
   renderDots();
   renderGrid();
   
   submitBtn.onclick = handleSubmit;
-  deselectBtn.onclick = () => { selectedWords = []; renderGrid(); };
-  shuffleBtn.onclick = () => { shuffleArray(activeWords); renderGrid(); };
+  deselectBtn.onclick = () => { if(!isGameOver) { selectedWords = []; renderGrid(); } };
+  shuffleBtn.onclick = () => { if(!isGameOver) { shuffleArray(activeWords); renderGrid(); } };
 }
 
 function renderGrid() {
   gridEl.innerHTML = "";
+  if (isGameOver) return;
+
   activeWords.forEach(item => {
     const card = document.createElement("div");
     card.classList.add("word-card");
@@ -280,6 +280,7 @@ function renderGrid() {
 }
 
 function toggleSelectWord(word) {
+  if (isGameOver) return;
   if (selectedWords.includes(word)) {
     selectedWords = selectedWords.filter(w => w !== word);
   } else if (selectedWords.length < 3) {
@@ -289,7 +290,7 @@ function toggleSelectWord(word) {
 }
 
 function handleSubmit() {
-  if (selectedWords.length !== 3 || mistakesLeft <= 0) return;
+  if (selectedWords.length !== 3 || mistakesLeft <= 0 || isGameOver) return;
 
   const matchedCategory = currentPuzzle.categories.find(cat => 
     cat.words.every(w => selectedWords.includes(w))
@@ -305,7 +306,10 @@ function handleSubmit() {
 
     if (solvedCategories.length === 3) {
       statusEl.textContent = "Great job! You solved today's puzzle!";
+      isGameOver = true;
       submitBtn.disabled = true;
+      recordGameResult(true);
+      renderStatsAndHistory();
     }
   } else {
     mistakesLeft--;
@@ -324,7 +328,10 @@ function handleSubmit() {
 
     if (mistakesLeft === 0) {
       statusEl.textContent = "Game Over! Try again tomorrow at 7:00 AM ET!";
+      isGameOver = true;
       revealAllCategories();
+      recordGameResult(false);
+      renderStatsAndHistory();
     }
   }
 }
@@ -362,6 +369,81 @@ function renderDots() {
     dot.classList.add("dot");
     if (i >= mistakesLeft) dot.classList.add("lost");
     mistakesEl.appendChild(dot);
+  }
+}
+
+// LocalStorage Persistence for Streaks & History
+function getGameData() {
+  try {
+    const data = localStorage.getItem("kids_connections_data");
+    return data ? JSON.parse(data) : { streak: 0, gamesPlayed: 0, history: {} };
+  } catch (e) {
+    return { streak: 0, gamesPlayed: 0, history: {} };
+  }
+}
+
+function recordGameResult(won) {
+  let data = getGameData();
+  const todayKey = `puzzle_${puzzleIdx}`;
+  
+  if (!data.history[todayKey]) {
+    data.gamesPlayed++;
+    if (won) {
+      data.streak++;
+    } else {
+      data.streak = 0;
+    }
+    data.history[todayKey] = { won: won, id: currentPuzzle.id };
+    localStorage.setItem("kids_connections_data", JSON.stringify(data));
+  }
+}
+
+function renderStatsAndHistory() {
+  let data = getGameData();
+  
+  // Inject or update stats banner above the game grid if not present
+  let statsBanner = document.getElementById("stats-banner");
+  if (!statsBanner) {
+    statsBanner = document.createElement("div");
+    statsBanner.id = "stats-banner";
+    statsBanner.className = "stats-banner";
+    document.querySelector("main").insertBefore(statsBanner, solvedEl);
+  }
+
+  statsBanner.innerHTML = `
+    <div class="stat-item">Streak <span>🔥 ${data.streak}</span></div>
+    <div class="stat-item">Completed <span>🏆 ${Object.values(data.history).filter(h => h.won).length}</span></div>
+  `;
+
+  // Inject or update history section at the bottom
+  let historySection = document.getElementById("history-section");
+  if (!historySection) {
+    historySection = document.createElement("div");
+    historySection.id = "history-section";
+    historySection.className = "history-section";
+    historySection.innerHTML = `
+      <h3>Past Puzzle History</h3>
+      <div id="history-list" class="history-list"></div>
+    `;
+    document.querySelector("main").appendChild(historySection);
+  }
+
+  const historyList = document.getElementById("history-list");
+  historyList.innerHTML = "";
+  
+  const entries = Object.entries(data.history);
+  if (entries.length === 0) {
+    historyList.innerHTML = `<div style="color: #888; font-size: 0.85rem; padding: 4px;">No completed games yet. Finish today's puzzle to log it here!</div>`;
+  } else {
+    entries.forEach(([key, record]) => {
+      const item = document.createElement("div");
+      item.className = `history-item ${record.won ? 'won' : 'lost'}`;
+      item.innerHTML = `
+        <span>Puzzle #${record.id}</span>
+        <span>${record.won ? '✅ Solved' : '❌ Missed'}</span>
+      `;
+      historyList.appendChild(item);
+    });
   }
 }
 
