@@ -3,206 +3,206 @@ const START_DATE_UTC = Date.UTC(2026, 10, 1, 12, 0, 0); // Nov 1, 2026, 12:00 UT
 const MAX_MISTAKES = 4;
 const COLOR_PALETTE = ['#fbc02d', '#4caf50', '#0288d1'];
 
-// 25 Themes tailored for young players (3x3 rows)
+// Themes tailored for kid players (3x3 rows)
 const PUZZLES = [
   {
     id: 1,
     categories: [
-      { name: "Farm Animals", words: ["COW", "PIG", "HEN"], color: COLOR_PALETTE[0] },
-      { name: "Colors", words: ["RED", "BLUE", "PINK"], color: COLOR_PALETTE[1] },
-      { name: "Fruit", words: ["FIG", "PLUM", "PEAR"], color: COLOR_PALETTE[2] }
+      { name: "Astronomy", words: ["MARS", "COMET", "PLUTO"], color: COLOR_PALETTE[0] },
+      { name: "Geometry", words: ["CONE", "CUBE", "PRISM"], color: COLOR_PALETTE[1] },
+      { name: "Chemistry", words: ["ATOM", "ION", "ACID"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 2,
     categories: [
-      { name: "Pets", words: ["DOG", "CAT", "FISH"], color: COLOR_PALETTE[0] },
-      { name: "Things You Wear", words: ["HAT", "SOCK", "SHOE"], color: COLOR_PALETTE[1] },
-      { name: "Things That Fly", words: ["BIRD", "KITE", "PLANE"], color: COLOR_PALETTE[2] }
+      { name: "Literature", words: ["MYTH", "FABLE", "EPIC"], color: COLOR_PALETTE[0] },
+      { name: "Music Terms", words: ["CHORD", "BEAT", "TEMPO"], color: COLOR_PALETTE[1] },
+      { name: "Art Methods", words: ["PAINT", "SKETCH", "CARVE"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 3,
     categories: [
-      { name: "Ocean Life", words: ["SEAL", "CRAB", "SHARK"], color: COLOR_PALETTE[0] },
-      { name: "Shapes", words: ["STAR", "OVAL", "RING"], color: COLOR_PALETTE[1] },
-      { name: "Vehicles", words: ["BUS", "CAR", "VAN"], color: COLOR_PALETTE[2] }
+      { name: "Weather Systems", words: ["FRONT", "STORM", "GALE"], color: COLOR_PALETTE[0] },
+      { name: "Geology", words: ["FAULT", "MAGMA", "DUNE"], color: COLOR_PALETTE[1] },
+      { name: "Physics Terms", words: ["FORCE", "MASS", "SPEED"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 4,
     categories: [
-      { name: "Things at the Beach", words: ["SAND", "WAVE", "SUN"], color: COLOR_PALETTE[0] },
-      { name: "Body Parts", words: ["HAND", "FOOT", "NOSE"], color: COLOR_PALETTE[1] },
-      { name: "Hot Drinks", words: ["TEA", "MILK", "COCOA"], color: COLOR_PALETTE[2] }
+      { name: "Coding Terms", words: ["LOOP", "BYTE", "NODE"], color: COLOR_PALETTE[0] },
+      { name: "Hardware", words: ["CHIP", "SCREEN", "MOUSE"], color: COLOR_PALETTE[1] },
+      { name: "Math Terms", words: ["RATIO", "SLOPE", "MEAN"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 5,
     categories: [
-      { name: "In the Sky", words: ["MOON", "STAR", "CLOUD"], color: COLOR_PALETTE[0] },
-      { name: "Family Members", words: ["MOM", "DAD", "BABY"], color: COLOR_PALETTE[1] },
-      { name: "Numbers", words: ["ONE", "TWO", "THREE"], color: COLOR_PALETTE[2] }
+      { name: "Greek Gods", words: ["ZEUS", "HERA", "ARES"], color: COLOR_PALETTE[0] },
+      { name: "Fantasy Races", words: ["ELF", "ORC", "DWARF"], color: COLOR_PALETTE[1] },
+      { name: "Myth Monsters", words: ["HYDRA", "GOBLIN", "SIREN"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 6,
     categories: [
-      { name: "Wild Animals", words: ["LION", "BEAR", "WOLF"], color: COLOR_PALETTE[0] },
-      { name: "School Supplies", words: ["PEN", "DESK", "BOOK"], color: COLOR_PALETTE[1] },
-      { name: "Breakfast Foods", words: ["EGG", "TOAST", "JAM"], color: COLOR_PALETTE[2] }
+      { name: "Anatomy", words: ["BRAIN", "HEART", "LUNGS"], color: COLOR_PALETTE[0] },
+      { name: "Senses", words: ["SIGHT", "TASTE", "TOUCH"], color: COLOR_PALETTE[1] },
+      { name: "Body Reflexes", words: ["BLINK", "YAWN", "SNEEZE"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 7,
     categories: [
-      { name: "Insects", words: ["ANT", "BEE", "BUG"], color: COLOR_PALETTE[0] },
-      { name: "Things in a Park", words: ["TREE", "GRASS", "BENCH"], color: COLOR_PALETTE[1] },
-      { name: "Winter Items", words: ["SNOW", "ICE", "COAT"], color: COLOR_PALETTE[2] }
+      { name: "Landforms", words: ["BASIN", "DELTA", "FJORD"], color: COLOR_PALETTE[0] },
+      { name: "Oceans", words: ["PACIFIC", "ARCTIC", "INDIAN"], color: COLOR_PALETTE[1] },
+      { name: "Continents", words: ["ASIA", "AFRICA", "EUROPE"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 8,
     categories: [
-      { name: "Bugs That Fly", words: ["FLY", "MOTH", "WASP"], color: COLOR_PALETTE[0] },
-      { name: "Musical Instruments", words: ["DRUM", "FLUTE", "BELL"], color: COLOR_PALETTE[1] },
-      { name: "Things You Read", words: ["BOOK", "MAP", "CARD"], color: COLOR_PALETTE[2] }
+      { name: "Board Games", words: ["CHESS", "CHECKERS", "GO"], color: COLOR_PALETTE[0] },
+      { name: "Card Games", words: ["POKER", "BRIDGE", "RUMMY"], color: COLOR_PALETTE[1] },
+      { name: "Team Sports", words: ["RUGBY", "TENNIS", "HOCKEY"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 9,
     categories: [
-      { name: "Toys", words: ["DOLL", "BALL", "BLOCK"], color: COLOR_PALETTE[0] },
-      { name: "Fast Food", words: ["FRIES", "BURGER", "PIZZA"], color: COLOR_PALETTE[1] },
-      { name: "Feelings", words: ["HAPPY", "SAD", "GLAD"], color: COLOR_PALETTE[2] }
+      { name: "Word Prefixes", words: ["MEGA", "MICRO", "HYPER"], color: COLOR_PALETTE[0] },
+      { name: "Word Suffixes", words: ["TION", "LESS", "FULL"], color: COLOR_PALETTE[1] },
+      { name: "Grammar Parts", words: ["VERB", "NOUN", "CLAUSE"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 10,
     categories: [
-      { name: "Things in the Kitchen", words: ["FORK", "SPOON", "PAN"], color: COLOR_PALETTE[0] },
-      { name: "Flavors", words: ["SWEET", "SOUR", "SALT"], color: COLOR_PALETTE[1] },
-      { name: "Things That Run on Power", words: ["LAMP", "TV", "FAN"], color: COLOR_PALETTE[2] }
+      { name: "Finance", words: ["COIN", "NOTE", "BOND"], color: COLOR_PALETTE[0] },
+      { name: "Banking Terms", words: ["LOAN", "DEBT", "TRUST"], color: COLOR_PALETTE[1] },
+      { name: "Trade Terms", words: ["BARTER", "IMPORT", "EXPORT"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 11,
     categories: [
-      { name: "Baking Ingredients", words: ["FLOUR", "SUGAR", "MILK"], color: COLOR_PALETTE[0] },
-      { name: "Things with Wheels", words: ["BIKE", "CART", "TRUCK"], color: COLOR_PALETTE[1] },
-      { name: "Nighttime Things", words: ["BED", "MOON", "DREAM"], color: COLOR_PALETTE[2] }
+      { name: "Photography", words: ["FOCUS", "ZOOM", "FLASH"], color: COLOR_PALETTE[0] },
+      { name: "Cinema", words: ["SCENE", "SHOT", "EDIT"], color: COLOR_PALETTE[1] },
+      { name: "Theater", words: ["STAGE", "ACT", "PROP"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 12,
     categories: [
-      { name: "Zoo Animals", words: ["ZEBRA", "HIPPO", "RHINO"], color: COLOR_PALETTE[0] },
-      { name: "Clothing Items", words: ["VEST", "PANTS", "SKIRT"], color: COLOR_PALETTE[1] },
-      { name: "Footwear", words: ["BOOT", "SHOE", "SOCK"], color: COLOR_PALETTE[2] }
+      { name: "Architecture", words: ["ARCH", "DOME", "PILLAR"], color: COLOR_PALETTE[0] },
+      { name: "Building Materials", words: ["STEEL", "BRICK", "STONE"], color: COLOR_PALETTE[1] },
+      { name: "Hand Tools", words: ["DRILL", "CLAMP", "LEVEL"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 13,
     categories: [
-      { name: "Water Toys", words: ["BOAT", "FLOAT", "BALL"], color: COLOR_PALETTE[0] },
-      { name: "Forest Animals", words: ["DEER", "FOX", "OWL"], color: COLOR_PALETTE[1] },
-      { name: "Types of Trees", words: ["OAK", "PINE", "PALM"], color: COLOR_PALETTE[2] }
+      { name: "Plant Anatomy", words: ["STEM", "ROOT", "LEAF"], color: COLOR_PALETTE[0] },
+      { name: "Ecosystems", words: ["DESERT", "TUNDRA", "FOREST"], color: COLOR_PALETTE[1] },
+      { name: "Biomes", words: ["TAIGA", "STEPPE", "SAVANNA"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 14,
     categories: [
-      { name: "Things That Bounce", words: ["BALL", "FROG", "TRAMP"], color: COLOR_PALETTE[0] },
-      { name: "Sweet Treats", words: ["CAKE", "CANDY", "PIE"], color: COLOR_PALETTE[1] },
-      { name: "Coin Values", words: ["DIME", "CENT", "NICKEL"], color: COLOR_PALETTE[2] }
+      { name: "Cryptids", words: ["YETI", "KRAKEN", "NESSY"], color: COLOR_PALETTE[0] },
+      { name: "Magic Concepts", words: ["SPELL", "POTION", "WAND"], color: COLOR_PALETTE[1] },
+      { name: "Space Phenomena", words: ["ORBIT", "ECLIPSE", "NOVA"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 15,
     categories: [
-      { name: "Yard Items", words: ["HOSE", "RAKE", "Lawn"], color: COLOR_PALETTE[0] },
-      { name: "Sports Equipment", words: ["BAT", "NET", "GOAL"], color: COLOR_PALETTE[1] },
-      { name: "Ways to Travel", words: ["WALK", "RUN", "SWIM"], color: COLOR_PALETTE[2] }
+      { name: "Government Types", words: ["STATE", "TRIBE", "REALM"], color: COLOR_PALETTE[0] },
+      { name: "History Milestones", words: ["REVOLT", "TREATY", "EMPIRE"], color: COLOR_PALETTE[1] },
+      { name: "Courtroom Roles", words: ["JUDGE", "JURY", "CLERK"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 16,
     categories: [
-      { name: "Space Things", words: ["SUN", "MOON", "MARS"], color: COLOR_PALETTE[0] },
-      { name: "Things You Draw With", words: ["PEN", "CRAYON", "CHALK"], color: COLOR_PALETTE[1] },
-      { name: "Places in a House", words: ["ROOM", "HALL", "YARD"], color: COLOR_PALETTE[2] }
+      { name: "Sound Properties", words: ["PITCH", "ECHO", "TONE"], color: COLOR_PALETTE[0] },
+      { name: "Light Properties", words: ["BEAM", "GLOW", "RAY"], color: COLOR_PALETTE[1] },
+      { name: "Color Terms", words: ["HUE", "TINT", "SHADE"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 17,
     categories: [
-      { name: "Things on a Face", words: ["EYE", "NOSE", "LIPS"], color: COLOR_PALETTE[0] },
-      { name: "Things You Drink From", words: ["CUP", "MUG", "GLASS"], color: COLOR_PALETTE[1] },
-      { name: "Cold Treats", words: ["ICE", "POPS", "CONE"], color: COLOR_PALETTE[2] }
+      { name: "Number Types", words: ["PRIME", "EVEN", "ODD"], color: COLOR_PALETTE[0] },
+      { name: "Fraction Words", words: ["HALF", "THIRD", "TENTH"], color: COLOR_PALETTE[1] },
+      { name: "Polygons", words: ["OCTAGON", "PENTAGON", "HEXAGON"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 18,
     categories: [
-      { name: "Things Made of Wood", words: ["DESK", "LOG", "STICK"], color: COLOR_PALETTE[0] },
-      { name: "Baby Animals", words: ["CUB", "PUP", "KIT"], color: COLOR_PALETTE[1] },
-      { name: "Things That Shine", words: ["SUN", "STAR", "LAMP"], color: COLOR_PALETTE[2] }
+      { name: "Energy Types", words: ["HEAT", "SOLAR", "MAGNETIC"], color: COLOR_PALETTE[0] },
+      { name: "Physical Forces", words: ["GRAVITY", "FRICTION", "TENSION"], color: COLOR_PALETTE[1] },
+      { name: "Motion Terms", words: ["SPEED", "VELOCITY", "DRIFT"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 19,
     categories: [
-      { name: "Weather Words", words: ["RAIN", "WIND", "SNOW"], color: COLOR_PALETTE[0] },
-      { name: "Things on a Bird", words: ["WING", "BEAK", "NEST"], color: COLOR_PALETTE[1] },
-      { name: "Green Things", words: ["LEAF", "FROG", "LIME"], color: COLOR_PALETTE[2] }
+      { name: "Cooking Actions", words: ["BLEND", "WHISK", "BAKE"], color: COLOR_PALETTE[0] },
+      { name: "Kitchen Tools", words: ["GRATER", "LADLE", "PEELER"], color: COLOR_PALETTE[1] },
+      { name: "Basic Tastes", words: ["BITTER", "SWEET", "UMAMI"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 20,
     categories: [
-      { name: "Round Things", words: ["BALL", "COIN", "RING"], color: COLOR_PALETTE[0] },
-      { name: "Things in a Bed", words: ["SHEET", "PILLOW", "QUILT"], color: COLOR_PALETTE[1] },
-      { name: "Tools", words: ["SAW", "AXE", "DRILL"], color: COLOR_PALETTE[2] }
+      { name: "Transit", words: ["SUBWAY", "FERRY", "BULLET"], color: COLOR_PALETTE[0] },
+      { name: "Aircraft", words: ["GLIDER", "ROCKET", "CHOPPER"], color: COLOR_PALETTE[1] },
+      { name: "Watercraft", words: ["YACHT", "SLOOP", "BARGE"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 21,
     categories: [
-      { name: "Noisy Things", words: ["BELL", "DRUM", "HORN"], color: COLOR_PALETTE[0] },
-      { name: "Things That Melt", words: ["ICE", "SNOW", "WAX"], color: COLOR_PALETTE[1] },
-      { name: "Things with Pages", words: ["BOOK", "MAG", "ALBUM"], color: COLOR_PALETTE[2] }
+      { name: "Sleep Terms", words: ["DREAM", "REM", "SNOOZE"], color: COLOR_PALETTE[0] },
+      { name: "Cognition", words: ["LOGIC", "MEMORY", "FOCUS"], color: COLOR_PALETTE[1] },
+      { name: "Strong Emotions", words: ["PANIC", "EUPHORIA", "SORROW"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 22,
     categories: [
-      { name: "Things at a Party", words: ["CAKE", "HAT", "GIFTS"], color: COLOR_PALETTE[0] },
-      { name: "Jungle Animals", words: ["APE", "TIGER", "SNAKE"], color: COLOR_PALETTE[1] },
-      { name: "Water Sources", words: ["POND", "LAKE", "RIVER"], color: COLOR_PALETTE[2] }
+      { name: "Writing Tools", words: ["QUILL", "CHALK", "STYLUS"], color: COLOR_PALETTE[0] },
+      { name: "Ancient Media", words: ["SCROLL", "TABLET", "CODEX"], color: COLOR_PALETTE[1] },
+      { name: "Book Parts", words: ["CHAPTER", "INDEX", "GLOSSARY"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 23,
     categories: [
-      { name: "Things in a School Bag", words: ["BOOK", "PEN", "RULER"], color: COLOR_PALETTE[0] },
-      { name: "Kinds of Bread", words: ["BUN", "ROLL", "LOAF"], color: COLOR_PALETTE[1] },
-      { name: "Things with Keyboards", words: ["PIANO", "LAPTOP", "PHONE"], color: COLOR_PALETTE[2] }
+      { name: "Sports Gear", words: ["CLEATS", "GLOVE", "PUCK"], color: COLOR_PALETTE[0] },
+      { name: "Team Positions", words: ["GOALIE", "CENTER", "WING"], color: COLOR_PALETTE[1] },
+      { name: "Play Actions", words: ["TACKLE", "VOLLEY", "SPIKE"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 24,
     categories: [
-      { name: "Things that Make Light", words: ["SUN", "FIRE", "BULB"], color: COLOR_PALETTE[0] },
-      { name: "Types of Shoes", words: ["BOOT", "SNEAKER", "CLOG"], color: COLOR_PALETTE[1] },
-      { name: "Things with Wings", words: ["BIRD", "BAT", "BEE"], color: COLOR_PALETTE[2] }
+      { name: "Earth Layers", words: ["CRUST", "MANTLE", "CORE"], color: COLOR_PALETTE[0] },
+      { name: "Natural Disasters", words: ["QUAKE", "FLOOD", "STORM"], color: COLOR_PALETTE[1] },
+      { name: "Rock Types", words: ["SHALE", "SLATE", "BASALT"], color: COLOR_PALETTE[2] }
     ]
   },
   {
     id: 25,
     categories: [
-      { name: "Things on a Tree", words: ["LEAF", "BARK", "BRANCH"], color: COLOR_PALETTE[0] },
-      { name: "Fast Animals", words: ["CHEETAH", "HARE", "HORSE"], color: COLOR_PALETTE[1] },
-      { name: "Soft Things", words: ["FUR", "COTTON", "SILK"], color: COLOR_PALETTE[2] }
+      { name: "Logic Terms", words: ["PROOF", "AXIOM", "FALLACY"], color: COLOR_PALETTE[0] },
+      { name: "Philosophy", words: ["ETHICS", "MORAL", "TRUTH"], color: COLOR_PALETTE[1] },
+      { name: "Brain Teasers", words: ["RIDDLE", "MAZE", "SUDOKU"], color: COLOR_PALETTE[2] }
     ]
   }
 ];
