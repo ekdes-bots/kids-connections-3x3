@@ -3,356 +3,6 @@ const START_DATE_UTC = Date.UTC(2026, 10, 1, 12, 0, 0); // Nov 1, 2026, 12:00 UT
 const MAX_MISTAKES = 4;
 const COLOR_PALETTE = ['#fbc02d', '#4caf50', '#0288d1'];
 
-// Themes tailored for kid players (3x3 rows)
-const PUZZLES = [
-  {
-    id: 1,
-    categories: [
-      { name: "Astronomy", words: ["MARS", "COMET", "PLUTO"], color: COLOR_PALETTE[0] },
-      { name: "Geometry", words: ["CONE", "CUBE", "PRISM"], color: COLOR_PALETTE[1] },
-      { name: "Chemistry", words: ["ATOM", "ION", "ACID"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 2,
-    categories: [
-      { name: "Literature", words: ["MYTH", "FABLE", "EPIC"], color: COLOR_PALETTE[0] },
-      { name: "Music Terms", words: ["CHORD", "BEAT", "TEMPO"], color: COLOR_PALETTE[1] },
-      { name: "Art Methods", words: ["PAINT", "SKETCH", "CARVE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 3,
-    categories: [
-      { name: "Weather Systems", words: ["FRONT", "STORM", "GALE"], color: COLOR_PALETTE[0] },
-      { name: "Geology", words: ["FAULT", "MAGMA", "DUNE"], color: COLOR_PALETTE[1] },
-      { name: "Physics Terms", words: ["FORCE", "MASS", "SPEED"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 4,
-    categories: [
-      { name: "Coding Terms", words: ["LOOP", "BYTE", "NODE"], color: COLOR_PALETTE[0] },
-      { name: "Hardware", words: ["CHIP", "SCREEN", "MOUSE"], color: COLOR_PALETTE[1] },
-      { name: "Math Terms", words: ["RATIO", "SLOPE", "MEAN"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 5,
-    categories: [
-      { name: "Greek Gods", words: ["ZEUS", "HERA", "ARES"], color: COLOR_PALETTE[0] },
-      { name: "Fantasy Races", words: ["ELF", "ORC", "DWARF"], color: COLOR_PALETTE[1] },
-      { name: "Myth Monsters", words: ["HYDRA", "GOBLIN", "SIREN"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 6,
-    categories: [
-      { name: "Anatomy", words: ["BRAIN", "HEART", "LUNGS"], color: COLOR_PALETTE[0] },
-      { name: "Senses", words: ["SIGHT", "TASTE", "TOUCH"], color: COLOR_PALETTE[1] },
-      { name: "Body Reflexes", words: ["BLINK", "YAWN", "SNEEZE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 7,
-    categories: [
-      { name: "Landforms", words: ["BASIN", "DELTA", "FJORD"], color: COLOR_PALETTE[0] },
-      { name: "Oceans", words: ["PACIFIC", "ARCTIC", "INDIAN"], color: COLOR_PALETTE[1] },
-      { name: "Continents", words: ["ASIA", "AFRICA", "EUROPE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 8,
-    categories: [
-      { name: "Board Games", words: ["CHESS", "CHECKERS", "GO"], color: COLOR_PALETTE[0] },
-      { name: "Card Games", words: ["POKER", "BRIDGE", "RUMMY"], color: COLOR_PALETTE[1] },
-      { name: "Team Sports", words: ["RUGBY", "TENNIS", "HOCKEY"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 9,
-    categories: [
-      { name: "Word Prefixes", words: ["MEGA", "MICRO", "HYPER"], color: COLOR_PALETTE[0] },
-      { name: "Word Suffixes", words: ["TION", "LESS", "FULL"], color: COLOR_PALETTE[1] },
-      { name: "Grammar Parts", words: ["VERB", "NOUN", "CLAUSE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 10,
-    categories: [
-      { name: "Finance", words: ["COIN", "NOTE", "BOND"], color: COLOR_PALETTE[0] },
-      { name: "Banking Terms", words: ["LOAN", "DEBT", "TRUST"], color: COLOR_PALETTE[1] },
-      { name: "Trade Terms", words: ["BARTER", "IMPORT", "EXPORT"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 11,
-    categories: [
-      { name: "Photography", words: ["FOCUS", "ZOOM", "FLASH"], color: COLOR_PALETTE[0] },
-      { name: "Cinema", words: ["SCENE", "SHOT", "EDIT"], color: COLOR_PALETTE[1] },
-      { name: "Theater", words: ["STAGE", "ACT", "PROP"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 12,
-    categories: [
-      { name: "Architecture", words: ["ARCH", "DOME", "PILLAR"], color: COLOR_PALETTE[0] },
-      { name: "Building Materials", words: ["STEEL", "BRICK", "STONE"], color: COLOR_PALETTE[1] },
-      { name: "Hand Tools", words: ["DRILL", "CLAMP", "LEVEL"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 13,
-    categories: [
-      { name: "Plant Anatomy", words: ["STEM", "ROOT", "LEAF"], color: COLOR_PALETTE[0] },
-      { name: "Ecosystems", words: ["DESERT", "TUNDRA", "FOREST"], color: COLOR_PALETTE[1] },
-      { name: "Biomes", words: ["TAIGA", "STEPPE", "SAVANNA"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 14,
-    categories: [
-      { name: "Cryptids", words: ["YETI", "KRAKEN", "NESSY"], color: COLOR_PALETTE[0] },
-      { name: "Magic Concepts", words: ["SPELL", "POTION", "WAND"], color: COLOR_PALETTE[1] },
-      { name: "Space Phenomena", words: ["ORBIT", "ECLIPSE", "NOVA"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 15,
-    categories: [
-      { name: "Government Types", words: ["STATE", "TRIBE", "REALM"], color: COLOR_PALETTE[0] },
-      { name: "History Milestones", words: ["REVOLT", "TREATY", "EMPIRE"], color: COLOR_PALETTE[1] },
-      { name: "Courtroom Roles", words: ["JUDGE", "JURY", "CLERK"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 16,
-    categories: [
-      { name: "Sound Properties", words: ["PITCH", "ECHO", "TONE"], color: COLOR_PALETTE[0] },
-      { name: "Light Properties", words: ["BEAM", "GLOW", "RAY"], color: COLOR_PALETTE[1] },
-      { name: "Color Terms", words: ["HUE", "TINT", "SHADE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 17,
-    categories: [
-      { name: "Number Types", words: ["PRIME", "EVEN", "ODD"], color: COLOR_PALETTE[0] },
-      { name: "Fraction Words", words: ["HALF", "THIRD", "TENTH"], color: COLOR_PALETTE[1] },
-      { name: "Polygons", words: ["OCTAGON", "PENTAGON", "HEXAGON"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 18,
-    categories: [
-      { name: "Energy Types", words: ["HEAT", "SOLAR", "MAGNETIC"], color: COLOR_PALETTE[0] },
-      { name: "Physical Forces", words: ["GRAVITY", "FRICTION", "TENSION"], color: COLOR_PALETTE[1] },
-      { name: "Motion Terms", words: ["SPEED", "VELOCITY", "DRIFT"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 19,
-    categories: [
-      { name: "Cooking Actions", words: ["BLEND", "WHISK", "BAKE"], color: COLOR_PALETTE[0] },
-      { name: "Kitchen Tools", words: ["GRATER", "LADLE", "PEELER"], color: COLOR_PALETTE[1] },
-      { name: "Basic Tastes", words: ["BITTER", "SWEET", "UMAMI"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 20,
-    categories: [
-      { name: "Transit", words: ["SUBWAY", "FERRY", "BULLET"], color: COLOR_PALETTE[0] },
-      { name: "Aircraft", words: ["GLIDER", "ROCKET", "CHOPPER"], color: COLOR_PALETTE[1] },
-      { name: "Watercraft", words: ["YACHT", "SLOOP", "BARGE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 21,
-    categories: [
-      { name: "Sleep Terms", words: ["DREAM", "REM", "SNOOZE"], color: COLOR_PALETTE[0] },
-      { name: "Cognition", words: ["LOGIC", "MEMORY", "FOCUS"], color: COLOR_PALETTE[1] },
-      { name: "Strong Emotions", words: ["PANIC", "EUPHORIA", "SORROW"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 22,
-    categories: [
-      { name: "Writing Tools", words: ["QUILL", "CHALK", "STYLUS"], color: COLOR_PALETTE[0] },
-      { name: "Ancient Media", words: ["SCROLL", "TABLET", "CODEX"], color: COLOR_PALETTE[1] },
-      { name: "Book Parts", words: ["CHAPTER", "INDEX", "GLOSSARY"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 23,
-    categories: [
-      { name: "Sports Gear", words: ["CLEATS", "GLOVE", "PUCK"], color: COLOR_PALETTE[0] },
-      { name: "Team Positions", words: ["GOALIE", "CENTER", "WING"], color: COLOR_PALETTE[1] },
-      { name: "Play Actions", words: ["TACKLE", "VOLLEY", "SPIKE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 24,
-    categories: [
-      { name: "Earth Layers", words: ["CRUST", "MANTLE", "CORE"], color: COLOR_PALETTE[0] },
-      { name: "Natural Disasters", words: ["QUAKE", "FLOOD", "STORM"], color: COLOR_PALETTE[1] },
-      { name: "Rock Types", words: ["SHALE", "SLATE", "BASALT"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 25,
-    categories: [
-      { name: "Logic Terms", words: ["PROOF", "AXIOM", "FALLACY"], color: COLOR_PALETTE[0] },
-      { name: "Philosophy", words: ["ETHICS", "MORAL", "TRUTH"], color: COLOR_PALETTE[1] },
-      { name: "Brain Teasers", words: ["RIDDLE", "MAZE", "SUDOKU"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 26,
-    categories: [
-      { name: "States of Matter", words: ["SOLID", "LIQUID", "GAS"], color: COLOR_PALETTE[0] },
-      { name: "Inner Planets", words: ["MARS", "VENUS", "EARTH"], color: COLOR_PALETTE[1] },
-      { name: "Musical Genres", words: ["ROCK", "JAZZ", "POP"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 27,
-    categories: [
-      { name: "Computer Hardware", words: ["MOUSE", "SCREEN", "KEY"], color: COLOR_PALETTE[0] },
-      { name: "Card Suits", words: ["HEART", "SPADE", "CLUB"], color: COLOR_PALETTE[1] },
-      { name: "Extreme Weather", words: ["STORM", "FLOOD", "DROUGHT"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 28,
-    categories: [
-      { name: "Types of Angles", words: ["ACUTE", "OBTUSE", "RIGHT"], color: COLOR_PALETTE[0] },
-      { name: "Egg Parts", words: ["YOLK", "WHITE", "SHELL"], color: COLOR_PALETTE[1] },
-      { name: "Watercraft", words: ["CANOE", "KAYAK", "YACHT"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 29,
-    categories: [
-      { name: "Ancient Civilizations", words: ["MAYAN", "AZTEC", "ROMAN"], color: COLOR_PALETTE[0] },
-      { name: "Volcano Parts", words: ["MAGMA", "LAVA", "ASH"], color: COLOR_PALETTE[1] },
-      { name: "Chess Pieces", words: ["ROOK", "KNIGHT", "PAWN"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 30,
-    categories: [
-      { name: "Layers of the Earth", words: ["CRUST", "MANTLE", "CORE"], color: COLOR_PALETTE[0] },
-      { name: "Sports Venues", words: ["COURT", "RING", "TRACK"], color: COLOR_PALETTE[1] },
-      { name: "Synonyms for 'Fast'", words: ["QUICK", "SWIFT", "RAPID"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 31,
-    categories: [
-      { name: "Types of Energy", words: ["SOLAR", "WIND", "HYDRO"], color: COLOR_PALETTE[0] },
-      { name: "Synonyms for 'Smart'", words: ["CLEVER", "BRIGHT", "SHARP"], color: COLOR_PALETTE[1] },
-      { name: "Track & Field Events", words: ["SPRINT", "RELAY", "HURDLE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 32,
-    categories: [
-      { name: "Parts of a Cell", words: ["NUCLEUS", "MEMBRANE", "WALL"], color: COLOR_PALETTE[0] }, // shorten to fit 3x3 nicely: "CORE", "WALL", "GEL" -> let's use standard terms: "NUCLEUS", "CYTOPLASM" (too long) -> let's use: "DNA", "CELL", "GENE"
-      { name: "Genetics", words: ["DNA", "CELL", "GENE"], color: COLOR_PALETTE[0] },
-      { name: "Literary Genres", words: ["MYSTERY", "FANTASY", "SCI-FI"], color: COLOR_PALETTE[1] },
-      { name: "Types of Triangles", words: ["SCALENE", "ISOSCELES", "ACUTE"] } // let's keep words single/short: "SCALENE", "ACUTE", "OBTUSE" -> wait, acute used in #28. Let's use: "SCALENE", "EQUILATERAL" (long), let's use: "BASE", "HYPOTENUSE", "LEG"
-    ]
-  },
-  {
-    id: 32,
-    categories: [
-      { name: "Genetics", words: ["DNA", "CELL", "GENE"], color: COLOR_PALETTE[0] },
-      { name: "Literary Genres", words: ["MYSTERY", "FANTASY", "DRAMA"], color: COLOR_PALETTE[1] },
-      { name: "Triangle Sides", words: ["BASE", "LEG", "APEX"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 33,
-    categories: [
-      { name: "Greek Gods", words: ["ZEUS", "HADES", "ATHENA"], color: COLOR_PALETTE[0] },
-      { name: "Wizarding Terms", words: ["WAND", "POTION", "SPELL"], color: COLOR_PALETTE[1] },
-      { name: "Cryptids", words: ["BIGFOOT", "YETI", "MOTHMAN"], color: COLOR_PALETTE[2] } // wait, mothman is 7 letters, fits: "BIGFOOT", "YETI", "KRAKEN"
-    ]
-  },
-  {
-    id: 34,
-    categories: [
-      { name: "Ocean Zones", words: ["SUNLIGHT", "TWILIGHT", "MIDNIGHT"], color: COLOR_PALETTE[0] }, // let's use single/shorter words: "SHALLOW", "DEEP", "ABYSS"
-      { name: "Ocean Depths", words: ["SHALLOW", "DEEP", "ABYSS"], color: COLOR_PALETTE[0] },
-      { name: "Cloud Types", words: ["CUMULUS", "STRATUS", "CIRRUS"], color: COLOR_PALETTE[1] },
-      { name: "Compass Points", words: ["NORTH", "SOUTH", "EAST"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 35,
-    categories: [
-      { name: "Photography Terms", words: ["FOCUS", "ZOOM", "LENS"], color: COLOR_PALETTE[0] },
-      { name: "Coding Terms", words: ["LOOP", "BUG", "CODE"], color: COLOR_PALETTE[1] },
-      { name: "Theater Terms", words: ["STAGE", "ACT", "SCRIPT"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 36,
-    categories: [
-      { name: "Punctuation Marks", words: ["COMMA", "PERIOD", "COLON"], color: COLOR_PALETTE[0] },
-      { name: "Math Operations", words: ["ADD", "MULTIPLY", "DIVIDE"], color: COLOR_PALETTE[1] },
-      { name: "Scientific Method Steps", words: ["QUESTION", "HYPOTHESIS", "TEST"], color: COLOR_PALETTE[2] } // shorten: "ASK", "TEST", "PROVE"
-    ]
-  },
-  {
-    id: 36,
-    categories: [
-      { name: "Punctuation", words: ["COMMA", "PERIOD", "COLON"], color: COLOR_PALETTE[0] },
-      { name: "Math Operations", words: ["SUM", "PRODUCT", "QUOTIENT"], color: COLOR_PALETTE[1] },
-      { name: "Experiment Steps", words: ["PREDICT", "TEST", "ANALYZE"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 37,
-    categories: [
-      { name: "Archery Terms", words: ["BOW", "ARROW", "TARGET"], color: COLOR_PALETTE[0] },
-      { name: "Camping Gear", words: ["TENT", "COMPASS", "BACKPACK"], color: COLOR_PALETTE[1] },
-      { name: "Scouting Skills", words: ["KNOT", "FIRE", "TRAIL"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 38,
-    categories: [
-      { name: "Prefixes Meaning 'Large'", words: ["MEGA", "MACRO", "SUPER"], color: COLOR_PALETTE[0] },
-      { name: "Prefixes Meaning 'Small'", words: ["MICRO", "MINI", "NANO"], color: COLOR_PALETTE[1] },
-      { name: "Prefixes Meaning 'Again'", words: ["RE", "BACK", "RETRO"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 39,
-    categories: [
-      { name: "Synonyms for 'Angry'", words: ["FUMING", "IRATE", "MAD"], color: COLOR_PALETTE[0] },
-      { name: "Synonyms for 'Happy'", words: ["JOYFUL", "BLISSFUL", "EUPHORIC"], color: COLOR_PALETTE[1] }, // shorten: "JOYFUL", "BLISS", "CHEER" -> let's use: "GLEEFUL", "JOYFUL", "UPBEAT"
-      { name: "Synonyms for 'Tired'", words: ["EXHAUSTED", "DRAINED", "FATIGUED"] } // wait, keep words snappy: "WORN", "TIRED", "SPENT"
-    ]
-  },
-  {
-    id: 39,
-    categories: [
-      { name: "Synonyms for 'Angry'", words: ["FUMING", "IRATE", "FROTHING"], color: COLOR_PALETTE[0] }, // let's keep simpler: "MAD", "FUMING", "IRATE"
-      { name: "Synonyms for 'Happy'", words: ["GLEEFUL", "JOYFUL", "UPBEAT"], color: COLOR_PALETTE[1] },
-      { name: "Synonyms for 'Tired'", words: ["WORN", "SPENT", "FATIGUED"], color: COLOR_PALETTE[2] }
-    ]
-  },
-  {
-    id: 40,
-    categories: [
-      { name: "Types of Government", words: ["DEMOCRACY", "MONARCHY", "REPUBLIC"], color: COLOR_PALETTE[0] }, // shorter: "DEMOCRACY", "MONARCHY", "TYRANNY"
-      { name: "Economic Terms", words: ["SUPPLY", "DEMAND", "INFLATION"], color: COLOR_PALETTE[1] }, // shorter: "SUPPLY", "DEMAND", "TRADE"
-      { name: "Map Features", words: ["LEGEND", "SCALE", "COMPASS"], color: COLOR_PALETTE[2] }
-    ]
-  }
-];
-
 // App State
 let currentPuzzle = null;
 let activeWords = [];
@@ -369,21 +19,12 @@ const deselectBtn = document.getElementById("deselect-btn");
 const shuffleBtn = document.getElementById("shuffle-btn");
 const mistakesEl = document.getElementById("mistake-dots");
 
-// Determine current daily game (7:00 AM ET rotation)
 function getDailyPuzzleIndex() {
   const now = new Date();
-  
-  // Calculate offset for Eastern Time (UTC-5 or UTC-4 DST)
   const isEDT = isDaylightSavings(now);
   const etOffsetHours = isEDT ? 4 : 5; 
-  
-  // Create 7:00 AM ET threshold in UTC milliseconds
-  const et7AMOffsetMs = (etOffsetHours + 7) * 60 * 60 * 1000;
-  
-  const diffMs = now.getTime() - (START_DATE_UTC - (5 * 60 * 60 * 1000));
+  const diffMs = now.getTime() - (START_DATE_UTC - (etOffsetHours * 60 * 60 * 1000));
   const dayIndex = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  
-  // Loop puzzle array across available days safely
   return Math.max(0, dayIndex) % PUZZLES.length;
 }
 
@@ -394,6 +35,11 @@ function isDaylightSavings(date) {
 }
 
 function initGame() {
+  if (typeof PUZZLES === 'undefined' || PUZZLES.length === 0) {
+    statusEl.textContent = "Error loading puzzles dataset.";
+    return;
+  }
+
   const puzzleIdx = getDailyPuzzleIndex();
   currentPuzzle = PUZZLES[puzzleIdx];
   
@@ -406,9 +52,9 @@ function initGame() {
   renderDots();
   renderGrid();
   
-  submitBtn.addEventListener("click", handleSubmit);
-  deselectBtn.addEventListener("click", () => { selectedWords = []; renderGrid(); });
-  shuffleBtn.addEventListener("click", () => { shuffleArray(activeWords); renderGrid(); });
+  submitBtn.onclick = handleSubmit;
+  deselectBtn.onclick = () => { selectedWords = []; renderGrid(); };
+  shuffleBtn.onclick = () => { shuffleArray(activeWords); renderGrid(); };
 }
 
 function renderGrid() {
@@ -422,7 +68,8 @@ function renderGrid() {
       card.classList.add("selected");
     }
     
-    card.addEventListener("click", () => toggleSelectWord(item.word));
+    // Use pointer/click events with fast response on mobile
+    card.onclick = () => toggleSelectWord(item.word);
     gridEl.appendChild(card);
   });
 
@@ -441,13 +88,11 @@ function toggleSelectWord(word) {
 function handleSubmit() {
   if (selectedWords.length !== 3 || mistakesLeft <= 0) return;
 
-  // Check matching category
   const matchedCategory = currentPuzzle.categories.find(cat => 
     cat.words.every(w => selectedWords.includes(w))
   );
 
   if (matchedCategory) {
-    // Correct Match
     solvedCategories.push(matchedCategory);
     activeWords = activeWords.filter(item => !selectedWords.includes(item.word));
     selectedWords = [];
@@ -460,11 +105,9 @@ function handleSubmit() {
       submitBtn.disabled = true;
     }
   } else {
-    // Incorrect Match
     mistakesLeft--;
     renderDots();
     
-    // Check if player was 1 off
     let isOneOff = false;
     currentPuzzle.categories.forEach(cat => {
       const matchCount = cat.words.filter(w => selectedWords.includes(w)).length;
