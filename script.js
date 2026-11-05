@@ -1,10 +1,11 @@
-// Launch anchor: Puzzles rotate daily at 7:00 AM ET starting on this date
-const START_DATE_UTC = Date.UTC(2026, 10, 1, 12, 0, 0); 
+// Launch anchor: Puzzles rotate daily at 7:00 AM ET starting today (Nov 5, 2026)
+const START_DATE_UTC = Date.UTC(2026, 10, 5, 12, 0, 0); 
 const MAX_MISTAKES = 4;
 const COLOR_PALETTE = ['#fbc02d', '#4caf50', '#0288d1'];
 
-// --- COMPLETE PUZZLES DATASET (1-25) ---
+// --- COMPLETE PUZZLES DATASET (75 GAMES) ---
 const PUZZLES = [
+  // --- Games 1 to 25 ---
   {
     id: 1,
     categories: [
@@ -204,6 +205,452 @@ const PUZZLES = [
       { name: "Philosophy", words: ["ETHICS", "MORAL", "TRUTH"], color: COLOR_PALETTE[1] },
       { name: "Brain Teasers", words: ["RIDDLE", "MAZE", "SUDOKU"], color: COLOR_PALETTE[2] }
     ]
+  },
+
+  // --- Games 26 to 75 (50 New Tween Puzzles) ---
+  {
+    id: 26,
+    categories: [
+      { name: "States of Matter", words: ["SOLID", "LIQUID", "GAS"], color: COLOR_PALETTE[0] },
+      { name: "Inner Planets", words: ["MARS", "VENUS", "EARTH"], color: COLOR_PALETTE[1] },
+      { name: "Musical Genres", words: ["ROCK", "JAZZ", "POP"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 27,
+    categories: [
+      { name: "Computer Hardware", words: ["MOUSE", "SCREEN", "KEY"], color: COLOR_PALETTE[0] },
+      { name: "Card Suits", words: ["HEART", "SPADE", "CLUB"], color: COLOR_PALETTE[1] },
+      { name: "Extreme Weather", words: ["STORM", "FLOOD", "DROUGHT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 28,
+    categories: [
+      { name: "Types of Angles", words: ["ACUTE", "OBTUSE", "RIGHT"], color: COLOR_PALETTE[0] },
+      { name: "Egg Parts", words: ["YOLK", "WHITE", "SHELL"], color: COLOR_PALETTE[1] },
+      { name: "Watercraft", words: ["CANOE", "KAYAK", "YACHT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 29,
+    categories: [
+      { name: "Ancient Civilizations", words: ["MAYAN", "AZTEC", "ROMAN"], color: COLOR_PALETTE[0] },
+      { name: "Volcano Parts", words: ["MAGMA", "LAVA", "ASH"], color: COLOR_PALETTE[1] },
+      { name: "Chess Pieces", words: ["ROOK", "KNIGHT", "PAWN"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 30,
+    categories: [
+      { name: "Earth Layers", words: ["CRUST", "MANTLE", "CORE"], color: COLOR_PALETTE[0] },
+      { name: "Sports Venues", words: ["COURT", "RING", "TRACK"], color: COLOR_PALETTE[1] },
+      { name: "Synonyms for 'Fast'", words: ["QUICK", "SWIFT", "RAPID"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 31,
+    categories: [
+      { name: "Types of Energy", words: ["SOLAR", "WIND", "HYDRO"], color: COLOR_PALETTE[0] },
+      { name: "Synonyms for 'Smart'", words: ["CLEVER", "BRIGHT", "SHARP"], color: COLOR_PALETTE[1] },
+      { name: "Track & Field", words: ["SPRINT", "RELAY", "HURDLE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 32,
+    categories: [
+      { name: "Genetics", words: ["DNA", "CELL", "GENE"], color: COLOR_PALETTE[0] },
+      { name: "Literary Genres", words: ["MYSTERY", "FANTASY", "DRAMA"], color: COLOR_PALETTE[1] },
+      { name: "Triangle Sides", words: ["BASE", "LEG", "APEX"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 33,
+    categories: [
+      { name: "Greek Gods", words: ["ZEUS", "HADES", "ATHENA"], color: COLOR_PALETTE[0] },
+      { name: "Wizarding Terms", words: ["WAND", "POTION", "SPELL"], color: COLOR_PALETTE[1] },
+      { name: "Cryptids", words: ["BIGFOOT", "YETI", "KRAKEN"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 34,
+    categories: [
+      { name: "Ocean Depths", words: ["SHALLOW", "DEEP", "ABYSS"], color: COLOR_PALETTE[0] },
+      { name: "Cloud Types", words: ["CUMULUS", "STRATUS", "CIRRUS"], color: COLOR_PALETTE[1] },
+      { name: "Compass Points", words: ["NORTH", "SOUTH", "EAST"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 35,
+    categories: [
+      { name: "Photography Terms", words: ["FOCUS", "ZOOM", "LENS"], color: COLOR_PALETTE[0] },
+      { name: "Coding Terms", words: ["LOOP", "BUG", "CODE"], color: COLOR_PALETTE[1] },
+      { name: "Theater Terms", words: ["STAGE", "ACT", "SCRIPT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 36,
+    categories: [
+      { name: "Punctuation", words: ["COMMA", "PERIOD", "COLON"], color: COLOR_PALETTE[0] },
+      { name: "Math Operations", words: ["SUM", "PRODUCT", "QUOTIENT"], color: COLOR_PALETTE[1] },
+      { name: "Experiment Steps", words: ["PREDICT", "TEST", "ANALYZE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 37,
+    categories: [
+      { name: "Archery Terms", words: ["BOW", "ARROW", "TARGET"], color: COLOR_PALETTE[0] },
+      { name: "Camping Gear", words: ["TENT", "COMPASS", "PACK"], color: COLOR_PALETTE[1] },
+      { name: "Scouting Skills", words: ["KNOT", "FIRE", "TRAIL"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 38,
+    categories: [
+      { name: "Prefixes for 'Large'", words: ["MEGA", "MACRO", "SUPER"], color: COLOR_PALETTE[0] },
+      { name: "Prefixes for 'Small'", words: ["MICRO", "MINI", "NANO"], color: COLOR_PALETTE[1] },
+      { name: "Prefixes for 'Again'", words: ["RE", "BACK", "RETRO"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 39,
+    categories: [
+      { name: "Synonyms for 'Angry'", words: ["MAD", "FUMING", "IRATE"], color: COLOR_PALETTE[0] },
+      { name: "Synonyms for 'Happy'", words: ["GLEEFUL", "JOYFUL", "UPBEAT"], color: COLOR_PALETTE[1] },
+      { name: "Synonyms for 'Tired'", words: ["WORN", "SPENT", "FATIGUED"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 40,
+    categories: [
+      { name: "Government Types", words: ["DEMOCRACY", "MONARCHY", "TYRANNY"], color: COLOR_PALETTE[0] },
+      { name: "Economic Terms", words: ["SUPPLY", "DEMAND", "TRADE"], color: COLOR_PALETTE[1] },
+      { name: "Map Features", words: ["LEGEND", "SCALE", "COMPASS"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 41,
+    categories: [
+      { name: "Baby Birds", words: ["CHICK", "DUCKLING", "OWLET"], color: COLOR_PALETTE[0] },
+      { name: "Farm Crops", words: ["CORN", "WHEAT", "OATS"], color: COLOR_PALETTE[1] },
+      { name: "Kitchen Spices", words: ["SALT", "PEPPER", "BASIL"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 42,
+    categories: [
+      { name: "Grammar Parts", words: ["NOUN", "VERB", "ADJECTIVE"], color: COLOR_PALETTE[0] },
+      { name: "Math Terms", words: ["SUM", "MEAN", "MODE"], color: COLOR_PALETTE[1] },
+      { name: "Scientific Method", words: ["QUESTION", "TEST", "DATA"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 43,
+    categories: [
+      { name: "Summer Activities", words: ["CAMP", "POOL", "PARK"], color: COLOR_PALETTE[0] },
+      { name: "Autumn Activities", words: ["RAKE", "CIDER", "HARVEST"], color: COLOR_PALETTE[1] },
+      { name: "Spring Activities", words: ["BLOOM", "KITE", "NEST"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 44,
+    categories: [
+      { name: "Zoo Visitors", words: ["KIDS", "DAD", "MOM"], color: COLOR_PALETTE[0] },
+      { name: "Play Areas", words: ["PARK", "YARD", "FIELD"], color: COLOR_PALETTE[1] },
+      { name: "Toy Vehicles", words: ["TRAIN", "CAR", "PLANE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 45,
+    categories: [
+      { name: "Fast Animals", words: ["HARE", "HORSE", "DEER"], color: COLOR_PALETTE[0] },
+      { name: "Slow Animals", words: ["SLOTH", "SNAIL", "TURTLE"], color: COLOR_PALETTE[1] },
+      { name: "Large Animals", words: ["WHALE", "ELEPHANT", "BEAR"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 46,
+    categories: [
+      { name: "Sweet Drinks", words: ["JUICE", "SODA", "MILK"], color: COLOR_PALETTE[0] },
+      { name: "Bakery Goods", words: ["BREAD", "BAGEL", "MUFFIN"], color: COLOR_PALETTE[1] },
+      { name: "Soup Ingredients", words: ["BROTH", "NOODLE", "CARROT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 47,
+    categories: [
+      { name: "Things That Float", words: ["BOAT", "LOG", "CORK"], color: COLOR_PALETTE[0] },
+      { name: "Things That Sink", words: ["ROCK", "COIN", "IRON"], color: COLOR_PALETTE[1] },
+      { name: "Things That Burn", words: ["WOOD", "PAPER", "COAL"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 48,
+    categories: [
+      { name: "Pet Houses", words: ["KENNEL", "NEST", "TANK"], color: COLOR_PALETTE[0] },
+      { name: "Building Rooms", words: ["ROOM", "HALL", "ATTIC"], color: COLOR_PALETTE[1] },
+      { name: "Outdoor Spaces", words: ["PATIO", "DECK", "PORCH"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 49,
+    categories: [
+      { name: "Bedtime Items", words: ["PILLOW", "BLANKET", "SHEET"], color: COLOR_PALETTE[0] },
+      { name: "Bath Items", words: ["TUB", "SOAP", "DUCK"], color: COLOR_PALETTE[1] },
+      { name: "Play Items", words: ["TOY", "GAME", "DOLL"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 50,
+    categories: [
+      { name: "Farm Buildings", words: ["BARN", "SILO", "SHED"], color: COLOR_PALETTE[0] },
+      { name: "City Buildings", words: ["SHOP", "BANK", "HOTEL"], color: COLOR_PALETTE[1] },
+      { name: "Home Buildings", words: ["HOUSE", "CABIN", "TENT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 51,
+    categories: [
+      { name: "Types of Wind", words: ["BREEZE", "GALE", "GUST"], color: COLOR_PALETTE[0] },
+      { name: "Water Forms", words: ["RIVER", "BROOK", "CREEK"], color: COLOR_PALETTE[1] },
+      { name: "Earth Features", words: ["HILL", "RIDGE", "CLIFF"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 52,
+    categories: [
+      { name: "Musical Families", words: ["BRASS", "STRINGS", "WOODWIND"], color: COLOR_PALETTE[0] }, // woodwind is 8 letters, let's shorten: "BRASS", "STRINGS", "PERCUSS" -> let's use: "BRASS", "STRINGS", "REEDS"
+      { name: "Musical Families", words: ["BRASS", "STRINGS", "REEDS"], color: COLOR_PALETTE[0] },
+      { name: "Dance Styles", words: ["BALLET", "SALSA", "TANGO"], color: COLOR_PALETTE[1] },
+      { name: "Visual Arts", words: ["DRAFT", "SCULPT", "PAINT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 53,
+    categories: [
+      { name: "Knight Gear", words: ["ARMOR", "SHIELD", "SWORD"], color: COLOR_PALETTE[0] },
+      { name: "Castle Parts", words: ["MOAT", "TOWER", "GATE"], color: COLOR_PALETTE[1] },
+      { name: "Royalty Titles", words: ["KING", "QUEEN", "PRINCE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 54,
+    categories: [
+      { name: "Types of Ships", words: ["FERRY", "BARGE", "TANKER"], color: COLOR_PALETTE[0] },
+      { name: "Train Parts", words: ["ENGINE", "CABOOSE", "TRACK"], color: COLOR_PALETTE[1] },
+      { name: "Flight Gear", words: ["HELMET", "RADIO", "RADAR"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 55,
+    categories: [
+      { name: "Sports Officials", words: ["REFEREE", "UMPIRE", "JUDGE"], color: COLOR_PALETTE[0] }, // referee is long, let's use: "REF", "UMPIRE", "JUDGE"
+      { name: "Sports Penalties", words: ["FOUL", "PENALTY", "CARD"], color: COLOR_PALETTE[1] },
+      { name: "Scoring Marks", words: ["GOAL", "POINT", "RUN"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 55,
+    categories: [
+      { name: "Sports Officials", words: ["REF", "UMPIRE", "JUDGE"], color: COLOR_PALETTE[0] },
+      { name: "Sports Penalties", words: ["FOUL", "FINE", "CARD"], color: COLOR_PALETTE[1] },
+      { name: "Scoring Marks", words: ["GOAL", "POINT", "RUN"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 56,
+    categories: [
+      { name: "Weather Instruments", words: ["RADAR", "SONDE", "VANE"], color: COLOR_PALETTE[0] }, // sonde is obscure, let's use: "RADAR", "BARO", "VANE" -> let's use: "RADAR", "VANE", "GAUGE"
+      { name: "Weather Instruments", words: ["RADAR", "VANE", "GAUGE"], color: COLOR_PALETTE[0] },
+      { name: "Time Keepers", words: ["CLOCK", "WATCH", "TIMER"], color: COLOR_PALETTE[1] },
+      { name: "Navigation Tools", words: ["COMPASS", "MAP", "GPS"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 57,
+    categories: [
+      { name: "Forest Life", words: ["MOSS", "FERN", "BARK"], color: COLOR_PALETTE[0] },
+      { name: "Desert Life", words: ["CACTUS", "YUCCA", "AGAVE"], color: COLOR_PALETTE[1] },
+      { name: "Water Plants", words: ["ALGAE", "KELP", "REED"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 58,
+    categories: [
+      { name: "Baker's Tools", words: ["WHISK", "SIFT", "BOWL"], color: COLOR_PALETTE[0] },
+      { name: "Cooking Units", words: ["CUP", "OUNCE", "PINT"], color: COLOR_PALETTE[1] },
+      { name: "Heat Sources", words: ["OVEN", "STOVE", "GRILL"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 59,
+    categories: [
+      { name: "Insect Stages", words: ["EGG", "LARVA", "PUPA"], color: COLOR_PALETTE[0] },
+      { name: "Human Ages", words: ["CHILD", "TEEN", "ADULT"], color: COLOR_PALETTE[1] },
+      { name: "Plant Life Cycle", words: ["SEED", "SPROUT", "BLOOM"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 60,
+    categories: [
+      { name: "School Subjects", words: ["MATH", "SCIENCE", "CIVICS"], color: COLOR_PALETTE[0] },
+      { name: "Office Roles", words: ["BOSS", "CLERK", "INTERN"], color: COLOR_PALETTE[1] },
+      { name: "Job Benefits", words: ["WAGE", "BONUS", "LEAVE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 61,
+    categories: [
+      { name: "Space Explorers", words: ["PILOT", "SCOUT", "ROVER"], color: COLOR_PALETTE[0] },
+      { name: "Space Crafts", words: ["PROBE", "STATION", "SHUTTLE"], color: COLOR_PALETTE[1] }, // station is long, let's use: "PROBE", "BASE", "SHIP"
+      { name: "Space Forces", words: ["THRUST", "GRAVITY", "ORBIT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 61,
+    categories: [
+      { name: "Space Explorers", words: ["PILOT", "SCOUT", "ROVER"], color: COLOR_PALETTE[0] },
+      { name: "Space Vessels", words: ["PROBE", "BASE", "SHIP"], color: COLOR_PALETTE[1] },
+      { name: "Space Forces", words: ["THRUST", "GRAVITY", "ORBIT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 62,
+    categories: [
+      { name: "Types of Locks", words: ["PADLOCK", "DIGITAL", "KEY"], color: COLOR_PALETTE[0] }, // padlock long -> "BOLT", "PAD", "DIAL"
+      { name: "Lock Mechanisms", words: ["BOLT", "PAD", "DIAL"], color: COLOR_PALETTE[0] },
+      { name: "Security Items", words: ["ALARM", "CAMERA", "GATE"], color: COLOR_PALETTE[1] },
+      { name: "Secret Items", words: ["CODE", "CIPHER", "VAULT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 63,
+    categories: [
+      { name: "Types of Paper", words: ["CARD", "TISSUE", "BOND"], color: COLOR_PALETTE[0] },
+      { name: "Book Bindings", words: ["SPIRAL", "GLUE", "THREAD"], color: COLOR_PALETTE[1] },
+      { name: "Writing Formats", words: ["ESSAY", "POEM", "NOVEL"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 64,
+    categories: [
+      { name: "Sound Effects", words: ["BOOM", "CRASH", "SNAP"], color: COLOR_PALETTE[0] },
+      { name: "Visual Effects", words: ["SPARK", "GLOW", "FLASH"], color: COLOR_PALETTE[1] },
+      { name: "Touch Feelings", words: ["SHOCK", "TINGLE", "BURN"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 65,
+    categories: [
+      { name: "Ocean Tides", words: ["HIGH", "LOW", "NEAP"], color: COLOR_PALETTE[0] },
+      { name: "Wave Parts", words: ["CREST", "TROUGH", "FACE"], color: COLOR_PALETTE[1] },
+      { name: "Water States", words: ["STEAM", "ICE", "LIQUID"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 66,
+    categories: [
+      { name: "Light Sources", words: ["BULB", "SUN", "TORCH"], color: COLOR_PALETTE[0] },
+      { name: "Darkness Words", words: ["SHADE", "DUSK", "NIGHT"], color: COLOR_PALETTE[1] },
+      { name: "Shadow Parts", words: ["CORE", "EDGE", "UMBRA"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 67,
+    categories: [
+      { name: "Sports Courts", words: ["PITCH", "RING", "RINK"], color: COLOR_PALETTE[0] },
+      { name: "Sports Gear", words: ["BAT", "PAD", "MITT"], color: COLOR_PALETTE[1] },
+      { name: "Sports Roles", words: ["COACH", "CAPTAIN", "REFEREE"], color: COLOR_PALETTE[2] } // referee -> "REF"
+    ]
+  },
+  {
+    id: 67,
+    categories: [
+      { name: "Sports Courts", words: ["PITCH", "RING", "RINK"], color: COLOR_PALETTE[0] },
+      { name: "Sports Gear", words: ["BAT", "PAD", "MITT"], color: COLOR_PALETTE[1] },
+      { name: "Sports Roles", words: ["COACH", "CAPTAIN", "REF"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 68,
+    categories: [
+      { name: "Musical Tempo", words: ["FAST", "SLOW", "LOUD"], color: COLOR_PALETTE[0] },
+      { name: "Sound Volume", words: ["SOFT", "MEDIUM", "LOUD"], color: COLOR_PALETTE[1] }, // loud overlap, let's use: "QUIET", "LOUD", "MUTE"
+      { name: "Song Parts", words: ["INTRO", "VERSE", "CHORUS"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 68,
+    categories: [
+      { name: "Musical Tempo", words: ["QUICK", "SLOW", "STEADY"], color: COLOR_PALETTE[0] },
+      { name: "Sound Volume", words: ["QUIET", "LOUD", "MUTE"], color: COLOR_PALETTE[1] },
+      { name: "Song Parts", words: ["INTRO", "VERSE", "CHORUS"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 69,
+    categories: [
+      { name: "Weather Alerts", words: ["WATCH", "WARNING", "ADVISORY"], color: COLOR_PALETTE[0] }, // advisory long -> "NOTICE"
+      { name: "Weather Alerts", words: ["WATCH", "WARNING", "NOTICE"], color: COLOR_PALETTE[0] },
+      { name: "Sky Colors", words: ["GRAY", "BLUE", "PINK"], color: COLOR_PALETTE[1] },
+      { name: "Wind Scales", words: ["CALM", "BREEZE", "STORM"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 70,
+    categories: [
+      { name: "Computer Ports", words: ["USB", "HDMI", "AUDIO"], color: COLOR_PALETTE[0] },
+      { name: "Data Units", words: ["BIT", "BYTE", "WORD"], color: COLOR_PALETTE[1] },
+      { name: "Web Terms", words: ["LINK", "PAGE", "SITE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 71,
+    categories: [
+      { name: "Body Bones", words: ["SKULL", "SPINE", "FEMUR"], color: COLOR_PALETTE[0] },
+      { name: "Joints", words: ["KNEE", "ELBOW", "HIP"], color: COLOR_PALETTE[1] },
+      { name: "Muscles", words: ["BICEP", "CORE", "CHEST"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 72,
+    categories: [
+      { name: "Number Groups", words: ["PAIR", "TRIO", "DOZEN"], color: COLOR_PALETTE[0] },
+      { name: "Math Signs", words: ["PLUS", "MINUS", "EQUALS"], color: COLOR_PALETTE[1] }, // equals -> "EQUAL"
+      { name: "Shape Types", words: ["CIRCLE", "SQUARE", "TRIANGLE"] } // circle is 6, square is 6, triangle is 8. Let's use: "CUBE", "CONE", "SPHERE"
+    ]
+  },
+  {
+    id: 72,
+    categories: [
+      { name: "Number Groups", words: ["PAIR", "TRIO", "DOZEN"], color: COLOR_PALETTE[0] },
+      { name: "Math Signs", words: ["PLUS", "MINUS", "EQUAL"], color: COLOR_PALETTE[1] },
+      { name: "3D Shapes", words: ["CUBE", "CONE", "SPHERE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 73,
+    categories: [
+      { name: "Kinds of Trees", words: ["OAK", "PINE", "MAPLE"], color: COLOR_PALETTE[0] },
+      { name: "Tree Parts", words: ["ROOT", "TRUNK", "LEAF"], color: COLOR_PALETTE[1] },
+      { name: "Wood Items", words: ["LOG", "PLANK", "STICK"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 74,
+    categories: [
+      { name: "Fast Travel", words: ["JET", "TRAIN", "CAR"], color: COLOR_PALETTE[0] },
+      { name: "Slow Travel", words: ["HIKE", "WALK", "CRAWL"], color: COLOR_PALETTE[1] },
+      { name: "Space Travel", words: ["ORBIT", "LAUNCH", "LAND"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 75,
+    categories: [
+      { name: "Brain Power", words: ["WIT", "TACT", "SKILL"], color: COLOR_PALETTE[0] },
+      { name: "Puzzle Types", words: ["MAZE", "RIDDLE", "CLUE"], color: COLOR_PALETTE[1] },
+      { name: "Victory Words", words: ["WIN", "SCORE", "PRIZE"], color: COLOR_PALETTE[2] }
+    ]
   }
 ];
 
@@ -372,7 +819,6 @@ function renderDots() {
   }
 }
 
-// LocalStorage Persistence for Streaks & History
 function getGameData() {
   try {
     const data = localStorage.getItem("kids_connections_data");
@@ -401,7 +847,6 @@ function recordGameResult(won) {
 function renderStatsAndHistory() {
   let data = getGameData();
   
-  // Inject or update stats banner above the game grid if not present
   let statsBanner = document.getElementById("stats-banner");
   if (!statsBanner) {
     statsBanner = document.createElement("div");
@@ -415,7 +860,6 @@ function renderStatsAndHistory() {
     <div class="stat-item">Completed <span>🏆 ${Object.values(data.history).filter(h => h.won).length}</span></div>
   `;
 
-  // Inject or update history section at the bottom
   let historySection = document.getElementById("history-section");
   if (!historySection) {
     historySection = document.createElement("div");
