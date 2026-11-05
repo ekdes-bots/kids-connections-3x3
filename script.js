@@ -204,6 +204,152 @@ const PUZZLES = [
       { name: "Philosophy", words: ["ETHICS", "MORAL", "TRUTH"], color: COLOR_PALETTE[1] },
       { name: "Brain Teasers", words: ["RIDDLE", "MAZE", "SUDOKU"], color: COLOR_PALETTE[2] }
     ]
+  },
+  {
+    id: 26,
+    categories: [
+      { name: "States of Matter", words: ["SOLID", "LIQUID", "GAS"], color: COLOR_PALETTE[0] },
+      { name: "Inner Planets", words: ["MARS", "VENUS", "EARTH"], color: COLOR_PALETTE[1] },
+      { name: "Musical Genres", words: ["ROCK", "JAZZ", "POP"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 27,
+    categories: [
+      { name: "Computer Hardware", words: ["MOUSE", "SCREEN", "KEY"], color: COLOR_PALETTE[0] },
+      { name: "Card Suits", words: ["HEART", "SPADE", "CLUB"], color: COLOR_PALETTE[1] },
+      { name: "Extreme Weather", words: ["STORM", "FLOOD", "DROUGHT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 28,
+    categories: [
+      { name: "Types of Angles", words: ["ACUTE", "OBTUSE", "RIGHT"], color: COLOR_PALETTE[0] },
+      { name: "Egg Parts", words: ["YOLK", "WHITE", "SHELL"], color: COLOR_PALETTE[1] },
+      { name: "Watercraft", words: ["CANOE", "KAYAK", "YACHT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 29,
+    categories: [
+      { name: "Ancient Civilizations", words: ["MAYAN", "AZTEC", "ROMAN"], color: COLOR_PALETTE[0] },
+      { name: "Volcano Parts", words: ["MAGMA", "LAVA", "ASH"], color: COLOR_PALETTE[1] },
+      { name: "Chess Pieces", words: ["ROOK", "KNIGHT", "PAWN"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 30,
+    categories: [
+      { name: "Layers of the Earth", words: ["CRUST", "MANTLE", "CORE"], color: COLOR_PALETTE[0] },
+      { name: "Sports Venues", words: ["COURT", "RING", "TRACK"], color: COLOR_PALETTE[1] },
+      { name: "Synonyms for 'Fast'", words: ["QUICK", "SWIFT", "RAPID"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 31,
+    categories: [
+      { name: "Types of Energy", words: ["SOLAR", "WIND", "HYDRO"], color: COLOR_PALETTE[0] },
+      { name: "Synonyms for 'Smart'", words: ["CLEVER", "BRIGHT", "SHARP"], color: COLOR_PALETTE[1] },
+      { name: "Track & Field Events", words: ["SPRINT", "RELAY", "HURDLE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 32,
+    categories: [
+      { name: "Parts of a Cell", words: ["NUCLEUS", "MEMBRANE", "WALL"], color: COLOR_PALETTE[0] }, // shorten to fit 3x3 nicely: "CORE", "WALL", "GEL" -> let's use standard terms: "NUCLEUS", "CYTOPLASM" (too long) -> let's use: "DNA", "CELL", "GENE"
+      { name: "Genetics", words: ["DNA", "CELL", "GENE"], color: COLOR_PALETTE[0] },
+      { name: "Literary Genres", words: ["MYSTERY", "FANTASY", "SCI-FI"], color: COLOR_PALETTE[1] },
+      { name: "Types of Triangles", words: ["SCALENE", "ISOSCELES", "ACUTE"] } // let's keep words single/short: "SCALENE", "ACUTE", "OBTUSE" -> wait, acute used in #28. Let's use: "SCALENE", "EQUILATERAL" (long), let's use: "BASE", "HYPOTENUSE", "LEG"
+    ]
+  },
+  {
+    id: 32,
+    categories: [
+      { name: "Genetics", words: ["DNA", "CELL", "GENE"], color: COLOR_PALETTE[0] },
+      { name: "Literary Genres", words: ["MYSTERY", "FANTASY", "DRAMA"], color: COLOR_PALETTE[1] },
+      { name: "Triangle Sides", words: ["BASE", "LEG", "APEX"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 33,
+    categories: [
+      { name: "Greek Gods", words: ["ZEUS", "HADES", "ATHENA"], color: COLOR_PALETTE[0] },
+      { name: "Wizarding Terms", words: ["WAND", "POTION", "SPELL"], color: COLOR_PALETTE[1] },
+      { name: "Cryptids", words: ["BIGFOOT", "YETI", "MOTHMAN"], color: COLOR_PALETTE[2] } // wait, mothman is 7 letters, fits: "BIGFOOT", "YETI", "KRAKEN"
+    ]
+  },
+  {
+    id: 34,
+    categories: [
+      { name: "Ocean Zones", words: ["SUNLIGHT", "TWILIGHT", "MIDNIGHT"], color: COLOR_PALETTE[0] }, // let's use single/shorter words: "SHALLOW", "DEEP", "ABYSS"
+      { name: "Ocean Depths", words: ["SHALLOW", "DEEP", "ABYSS"], color: COLOR_PALETTE[0] },
+      { name: "Cloud Types", words: ["CUMULUS", "STRATUS", "CIRRUS"], color: COLOR_PALETTE[1] },
+      { name: "Compass Points", words: ["NORTH", "SOUTH", "EAST"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 35,
+    categories: [
+      { name: "Photography Terms", words: ["FOCUS", "ZOOM", "LENS"], color: COLOR_PALETTE[0] },
+      { name: "Coding Terms", words: ["LOOP", "BUG", "CODE"], color: COLOR_PALETTE[1] },
+      { name: "Theater Terms", words: ["STAGE", "ACT", "SCRIPT"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 36,
+    categories: [
+      { name: "Punctuation Marks", words: ["COMMA", "PERIOD", "COLON"], color: COLOR_PALETTE[0] },
+      { name: "Math Operations", words: ["ADD", "MULTIPLY", "DIVIDE"], color: COLOR_PALETTE[1] },
+      { name: "Scientific Method Steps", words: ["QUESTION", "HYPOTHESIS", "TEST"], color: COLOR_PALETTE[2] } // shorten: "ASK", "TEST", "PROVE"
+    ]
+  },
+  {
+    id: 36,
+    categories: [
+      { name: "Punctuation", words: ["COMMA", "PERIOD", "COLON"], color: COLOR_PALETTE[0] },
+      { name: "Math Operations", words: ["SUM", "PRODUCT", "QUOTIENT"], color: COLOR_PALETTE[1] },
+      { name: "Experiment Steps", words: ["PREDICT", "TEST", "ANALYZE"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 37,
+    categories: [
+      { name: "Archery Terms", words: ["BOW", "ARROW", "TARGET"], color: COLOR_PALETTE[0] },
+      { name: "Camping Gear", words: ["TENT", "COMPASS", "BACKPACK"], color: COLOR_PALETTE[1] },
+      { name: "Scouting Skills", words: ["KNOT", "FIRE", "TRAIL"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 38,
+    categories: [
+      { name: "Prefixes Meaning 'Large'", words: ["MEGA", "MACRO", "SUPER"], color: COLOR_PALETTE[0] },
+      { name: "Prefixes Meaning 'Small'", words: ["MICRO", "MINI", "NANO"], color: COLOR_PALETTE[1] },
+      { name: "Prefixes Meaning 'Again'", words: ["RE", "BACK", "RETRO"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 39,
+    categories: [
+      { name: "Synonyms for 'Angry'", words: ["FUMING", "IRATE", "MAD"], color: COLOR_PALETTE[0] },
+      { name: "Synonyms for 'Happy'", words: ["JOYFUL", "BLISSFUL", "EUPHORIC"], color: COLOR_PALETTE[1] }, // shorten: "JOYFUL", "BLISS", "CHEER" -> let's use: "GLEEFUL", "JOYFUL", "UPBEAT"
+      { name: "Synonyms for 'Tired'", words: ["EXHAUSTED", "DRAINED", "FATIGUED"] } // wait, keep words snappy: "WORN", "TIRED", "SPENT"
+    ]
+  },
+  {
+    id: 39,
+    categories: [
+      { name: "Synonyms for 'Angry'", words: ["FUMING", "IRATE", "FROTHING"], color: COLOR_PALETTE[0] }, // let's keep simpler: "MAD", "FUMING", "IRATE"
+      { name: "Synonyms for 'Happy'", words: ["GLEEFUL", "JOYFUL", "UPBEAT"], color: COLOR_PALETTE[1] },
+      { name: "Synonyms for 'Tired'", words: ["WORN", "SPENT", "FATIGUED"], color: COLOR_PALETTE[2] }
+    ]
+  },
+  {
+    id: 40,
+    categories: [
+      { name: "Types of Government", words: ["DEMOCRACY", "MONARCHY", "REPUBLIC"], color: COLOR_PALETTE[0] }, // shorter: "DEMOCRACY", "MONARCHY", "TYRANNY"
+      { name: "Economic Terms", words: ["SUPPLY", "DEMAND", "INFLATION"], color: COLOR_PALETTE[1] }, // shorter: "SUPPLY", "DEMAND", "TRADE"
+      { name: "Map Features", words: ["LEGEND", "SCALE", "COMPASS"], color: COLOR_PALETTE[2] }
+    ]
   }
 ];
 
